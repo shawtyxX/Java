@@ -1,12 +1,11 @@
-
-import javax.swing.*;
-import java.io.*;
-
+import javax.swing.WindowConstants;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Main {
 
     public static void create() throws IOException {
-
         DataOutputStream f = new DataOutputStream(new FileOutputStream("123.bin"));
 
         for (double x = -15; x <= 15; x += 0.05) {

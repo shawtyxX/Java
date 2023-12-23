@@ -1,9 +1,17 @@
-
-
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.Stroke;
 import java.awt.font.FontRenderContext;
-import java.awt.geom.*;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.GeneralPath;
+import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -62,8 +70,8 @@ public class GraphicsDisplay extends JPanel {
         Font areaFont = new Font("Serif", Font.BOLD, 16);
         labelsFont = new Font("Serif", 0, 10);
         GraphicsDisplay.formatter.setMaximumFractionDigits(5);
-     //   addMouseListener(new MouseHandler());
-     //   addMouseMotionListener(new MouseMotionHandler());
+        //   addMouseListener(new MouseHandler());
+        //   addMouseMotionListener(new MouseMotionHandler());
     }
 
     public void displayGraphics(Double[][] GraphicsData, Double[][] OriginalData) {
@@ -109,7 +117,7 @@ public class GraphicsDisplay extends JPanel {
             maxY += yIncrement;
             minY -= yIncrement;
         }
-        
+
         if (scale == scaleY) {
             double xIncrement = (getSize().getWidth() / scale - (maxX - minX)) / 2;
             maxX += xIncrement;
@@ -203,7 +211,7 @@ public class GraphicsDisplay extends JPanel {
                 if (i_n == this.selectedMarker) {
                     lastMarker = marker;
                 } else {
-                	canvas.drawOval((int) (center.x), (int) (center.y), 1, 1);
+                    canvas.drawOval((int) (center.x), (int) (center.y), 1, 1);
                     canvas.drawLine((int) (center.x - 5.5), (int) (center.y), (int) (center.x + 5.5), (int) (center.y));
                     canvas.drawLine((int) (center.x - 1), (int) (center.y - 5.5), (int) (center.x + 1), (int) (center.y - 5.5));
                     canvas.drawLine((int) (center.x - 1), (int) (center.y + 5.5), (int) (center.x + 1), (int) (center.y + 5.5));
@@ -222,11 +230,11 @@ public class GraphicsDisplay extends JPanel {
         canvas.setStroke(markerStroke);
     }
 
- // Проверка, что число является квадратом целого числа
- private boolean isSquare(int num) {
-     int sqrt = (int) Math.sqrt(num);
-     return sqrt * sqrt == num;
- }
+    // Проверка, что число является квадратом целого числа
+    private boolean isSquare(int num) {
+        int sqrt = (int) Math.sqrt(num);
+        return sqrt * sqrt == num;
+    }
 
     private void paintLabels(final Graphics2D canvas) {
         canvas.setColor(Color.BLACK);
@@ -254,11 +262,11 @@ public class GraphicsDisplay extends JPanel {
 
             canvas.draw(new Line2D.Double(xyToPoint(0, maxY),
                     xyToPoint(0, minY)));
-          String originLabel = "0";
-          Rectangle2D originBounds = axisFont.getStringBounds(originLabel, context);
-          Point2D.Double originLabelPos = xyToPoint(0, 0);
-          canvas.drawString(originLabel, (float) (originLabelPos.getX() + originBounds.getWidth()),
-                  (float) (originLabelPos.getY() + originBounds.getY()) + 40);
+            String originLabel = "0";
+            Rectangle2D originBounds = axisFont.getStringBounds(originLabel, context);
+            Point2D.Double originLabelPos = xyToPoint(0, 0);
+            canvas.drawString(originLabel, (float) (originLabelPos.getX() + originBounds.getWidth()),
+                    (float) (originLabelPos.getY() + originBounds.getY()) + 40);
 
             GeneralPath arrow = new GeneralPath();
             Point2D.Double lineEnd = xyToPoint(0, maxY);
