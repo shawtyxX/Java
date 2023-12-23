@@ -1,6 +1,3 @@
-
-
-import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 
 @SuppressWarnings("serial")
