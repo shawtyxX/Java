@@ -1,7 +1,9 @@
 public class Main {
     public static void main(String[] args) {
         int items_qty = 0;
+
         Food[] breakfast = new Food[20];
+
         for(String arg: args){
             String[] parts = arg.split("/");
             if(parts[0].equals("Cheese")){
@@ -16,19 +18,17 @@ public class Main {
             else if(parts[0].equals("Tea")){
                 breakfast[items_qty] = new Tea(parts[1]);
             }
-            items_qty ++;
+            items_qty++;
         }
 
         for(Food item: breakfast){
             if(item != null){
                 item.consume();
-            }
-            else{
+            } else {
                 break;
             }
         }
 
         System.out.println("Всё хорошо");
-
     }
 }

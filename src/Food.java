@@ -1,8 +1,8 @@
 public abstract class Food implements Consumable{
-    String name = null;
+    String name;
+
     @Override
     public void consume(){
-
     }
 
     public String getName(){
