@@ -2,21 +2,15 @@ public class Main {
     public static void main(String[] args) {
         int items_qty = 0;
 
-        Food[] breakfast = new Food[20];
+        Food[] breakfast = new Food[args.length];
 
         for(String arg: args){
             String[] parts = arg.split("/");
-            if(parts[0].equals("Cheese")){
-                breakfast[items_qty] = new Cheese();
-            }
-            else if(parts[0].equals("Apple")){
-                breakfast[items_qty] = new Apple(parts[1]);
-            }
-            else if(parts[0].equals("Eggs")){
-                breakfast[items_qty] = new Eggs(Integer.parseInt(parts[1]));
-            }
-            else if(parts[0].equals("Tea")){
-                breakfast[items_qty] = new Tea(parts[1]);
+            switch (parts[0]) {
+                case "Cheese" -> breakfast[items_qty] = new Cheese();
+                case "Apple" -> breakfast[items_qty] = new Apple(parts[1]);
+                case "Eggs" -> breakfast[items_qty] = new Eggs(Integer.parseInt(parts[1]));
+                case "Tea" -> breakfast[items_qty] = new Tea(parts[1]);
             }
             items_qty++;
         }
@@ -29,6 +23,25 @@ public class Main {
             }
         }
 
-        System.out.println("Всё хорошо");
+        System.out.println("\nПодсчёт продуктов:");
+        printFoods(breakfast);
+
+        System.out.println("\nВсего хорошего!");
+    }
+
+    public static Integer countFoods(Food[] breakfast, Food food) {
+        Integer count = 0;
+        for (Food value : breakfast) {
+            if (food.equals(value)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void printFoods(Food[] breakfast){
+        for (Food value : breakfast) {
+            System.out.println(value + ": " + countFoods(breakfast, value));
+        }
     }
 }
