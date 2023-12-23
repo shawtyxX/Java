@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import static java.lang.Math.*;
+
 @SuppressWarnings("serial")
 // Главный класс приложения, он же класс фрейма
 public class MainFrame extends JFrame {
@@ -61,7 +62,7 @@ public class MainFrame extends JFrame {
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
                 MainFrame.this.formulaId = formulaId;
-               
+
             }
         });
         radioButtons.add(button);
@@ -100,7 +101,7 @@ public class MainFrame extends JFrame {
         Box hboxVariables = Box.createHorizontalBox();
         hboxVariables.setBorder(
                 BorderFactory.createLineBorder(Color.RED));
-       // hboxVariables.add(Box.createHorizontalGlue());
+        // hboxVariables.add(Box.createHorizontalGlue());
         hboxVariables.add(labelForX);
         hboxVariables.add(Box.createHorizontalStrut(10));
         hboxVariables.add(textFieldX);
@@ -115,9 +116,9 @@ public class MainFrame extends JFrame {
         hboxVariables.add(Box.createHorizontalStrut(100));
         hboxVariables.add(labelForZ);
         hboxVariables.add(textFieldZ);
-       // hboxVariables.add(labelForZ);
+        // hboxVariables.add(labelForZ);
         hboxVariables.add(Box.createHorizontalStrut(10));
-       // hboxVariables.add(textFieldZ);
+        // hboxVariables.add(textFieldZ);
 
         //hboxVariables.add(Box.createHorizontalGlue());
 // Создать область для вывода результата
@@ -194,7 +195,7 @@ public class MainFrame extends JFrame {
         Box hboxButtons = Box.createHorizontalBox();
         hboxButtons.add(Box.createHorizontalGlue());
         hboxButtons.add(buttonReset);
-       // hboxButtons.add(buttonCalc);
+        // hboxButtons.add(buttonCalc);
         hboxButtons.add(Box.createHorizontalStrut(10));
         //hboxButtons.add(Box.createHorizontalGlue());
 
@@ -202,7 +203,7 @@ public class MainFrame extends JFrame {
         //hboxButtons.add(buttonReset);
         hboxButtons.add(Box.createHorizontalGlue());
         hboxResult.setBorder(BorderFactory.createLineBorder(Color.BLUE));
-       // hboxButtons.add(Box.createHorizontalGlue());
+        // hboxButtons.add(Box.createHorizontalGlue());
         hboxButtons.setBorder(
                 BorderFactory.createLineBorder(Color.GREEN));
 // Связать области воедино в компоновке BoxLayout
@@ -214,16 +215,16 @@ public class MainFrame extends JFrame {
         contentBox.add(hboxButtons);
 
         Box hboxMemory = Box.createHorizontalBox();
-       //hboxMemory.add(Box.createHorizontalGlue());//закомментировать, если он попросит сделать М+ ближе к левому краю
+        //hboxMemory.add(Box.createHorizontalGlue());//закомментировать, если он попросит сделать М+ ближе к левому краю
         hboxMemory.add(Box.createHorizontalStrut(10));
         hboxMemory.add(buttonMemoryPlus);
         hboxMemory.add(Box.createHorizontalGlue());
         hboxMemory.add(textFieldM);
         //hboxMemory.add(Box.createHorizontalGlue());
         //hboxMemory.add(Box.createHorizontalGlue());
-       hboxMemory.add(buttonMemoryClear);
+        hboxMemory.add(buttonMemoryClear);
         hboxMemory.add(Box.createHorizontalStrut(20));
-       // hboxMemory.add(Box.createHorizontalGlue());//закомментировать, если он попросит сделать МС ближе к правому краю
+        // hboxMemory.add(Box.createHorizontalGlue());//закомментировать, если он попросит сделать МС ближе к правому краю
 
 
         contentBox.add(hboxMemory);
