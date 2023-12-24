@@ -40,7 +40,7 @@ public class GornerTableCellRenderer implements TableCellRenderer {
 
         panel.setBackground(Color.WHITE);
         label.setForeground(Color.BLACK);
-        if ((col == 1 && needle != null && needle.equals(formattedDouble))) {
+        if ((col == 0 && needle != null && needle.equals(formattedDouble))) {
             panel.setBackground(Color.RED);
         }
         if (needleStart != null && needleEnd != null) {

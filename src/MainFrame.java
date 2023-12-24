@@ -94,7 +94,7 @@ public class MainFrame extends JFrame {
         saveToGraphicsMenuItem = fileMenu.add(saveToGraphicsAction); // Добавить соответствующий пункт подменю в меню "Файл"
         saveToGraphicsMenuItem.setEnabled(false); // По умолчанию пункт меню является недоступным(данных ещѐ нет)
 
-        Action searchValueAction = new AbstractAction("Найти значение многочлена") { // Создать новое действие по поиску значений многочлена
+        Action searchValueAction = new AbstractAction("Найти значение Х") { // Создать новое действие по поиску значений Х
             public void actionPerformed(ActionEvent event) {
                 String value = JOptionPane.showInputDialog(MainFrame.this, "Введите значение для поиска","Поиск значения", JOptionPane.QUESTION_MESSAGE); // Запросить пользователя ввести искомую строку
                 renderer.setNeedle(value); // Установить введенное значение в качестве иголки
